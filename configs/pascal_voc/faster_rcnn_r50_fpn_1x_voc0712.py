@@ -4,7 +4,7 @@ _base_ = [
 ]
 model = dict(roi_head=dict(bbox_head=dict(num_classes=7)))
 # optimizer
-optimizer = dict(type='AdamW', lr=0.001, weight_decay=0.0001)
+optimizer = dict(type='AdamW', lr=0.0001, weight_decay=0.0001)
 optimizer_config = dict(grad_clip=None)
 # learning policy
 # actual epoch = 3 * 3 = 9
