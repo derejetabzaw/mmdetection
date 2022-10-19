@@ -78,7 +78,7 @@ class Resize:
                  multiscale_mode='range',
                  ratio_range=None,
                  keep_ratio=True,
-                 bbox_clip_border=True,
+                 bbox_clip_border=False,
                  backend='cv2',
                  interpolation='bilinear',
                  override=False):
@@ -250,6 +250,8 @@ class Resize:
         for key in results.get('bbox_fields', []):
             # bboxes = results[key] * results['scale_factor']
             bboxes = np.dot(results[key], results['scale_factor'])
+            print ("bboxes" , bboxes)
+            print ("bboxes" , bboxes.shape)
             if self.bbox_clip_border:
                 img_shape = results['img_shape']
                 bboxes[:, 0::2] = np.clip(bboxes[:, 0::2], 0, img_shape[1])
