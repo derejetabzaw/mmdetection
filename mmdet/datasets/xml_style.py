@@ -119,13 +119,13 @@ class XMLDataset(CustomDataset):
             # Coordinates may be float type
             for i in range(len(polygon)):
                 values.append(int(float(polygon[i].text)))
-            # bbox = [
-            #     int(float(bnd_box.find('xmin').text)),
-            #     int(float(bnd_box.find('ymin').text)),
-            #     int(float(bnd_box.find('xmax').text)),
-            #     int(float(bnd_box.find('ymax').text))
-            # ]
-            bbox = values
+            bbox = [
+                int(float(bnd_box.find('xmin').text)),
+                int(float(bnd_box.find('ymin').text)),
+                int(float(bnd_box.find('xmax').text)),
+                int(float(bnd_box.find('ymax').text))
+            ]
+            # bbox = values
             ignore = False
             if self.min_size:
                 assert not self.test_mode
