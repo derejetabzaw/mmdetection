@@ -252,7 +252,6 @@ class Resize:
         for key in results.get('bbox_fields', []):
             print (results[key])
             print (results['scale_factor'])
-            print ("Results:",np.dot(results[key], results['scale_factor']))
             bboxes = results[key] * results['scale_factor']
             print ("bboxes" , bboxes)
             # bboxes = np.dot(results[key], results['scale_factor'])
