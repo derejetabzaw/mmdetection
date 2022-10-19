@@ -409,7 +409,7 @@ class RandomFlip:
         Returns:
             numpy.ndarray: Flipped bounding boxes.
         """
-
+        print (bboxes.shape)
         assert bboxes.shape[-1] % 4 == 0
         flipped = bboxes.copy()
         if direction == 'horizontal':
