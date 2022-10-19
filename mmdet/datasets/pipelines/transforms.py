@@ -252,6 +252,7 @@ class Resize:
             print (results['scale_factor'])
             print ("Results:",np.dot(results[key], results['scale_factor']))
             bboxes = results[key] * results['scale_factor']
+            print ("bboxes" , bboxes)
             # bboxes = np.dot(results[key], results['scale_factor'])
             if self.bbox_clip_border:
                 img_shape = results['img_shape']
