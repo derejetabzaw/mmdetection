@@ -105,8 +105,10 @@ class XMLDataset(CustomDataset):
         labels = []
         bboxes_ignore = []
         labels_ignore = []
+        values = []
         for obj in root.findall('object'):
             name = obj.find('name').text
+            polygon = obj.find('polygon')
             if name not in self.CLASSES:
                 continue
             label = self.cat2label[name]
@@ -115,19 +117,22 @@ class XMLDataset(CustomDataset):
             bnd_box = obj.find('bndbox')
             # TODO: check whether it is necessary to use int
             # Coordinates may be float type
-            bbox = [
-                int(float(bnd_box.find('xmin').text)),
-                int(float(bnd_box.find('ymin').text)),
-                int(float(bnd_box.find('xmax').text)),
-                int(float(bnd_box.find('ymax').text))
-            ]
+            for i in range(len(polygon)):
+                values.append(int(float(polygon[i].text)))
+            # bbox = [
+            #     int(float(bnd_box.find('xmin').text)),
+            #     int(float(bnd_box.find('ymin').text)),
+            #     int(float(bnd_box.find('xmax').text)),
+            #     int(float(bnd_box.find('ymax').text))
+            # ]
+            bbox = values
             ignore = False
             if self.min_size:
                 assert not self.test_mode
-                w = bbox[2] - bbox[0]
-                h = bbox[3] - bbox[1]
-                if w < self.min_size or h < self.min_size:
-                    ignore = True
+                # w = bbox[2] - bbox[0]
+                # h = bbox[3] - bbox[1]
+                # if w < self.min_size or h < self.min_size:
+                #     ignore = True
             if difficult or ignore:
                 bboxes_ignore.append(bbox)
                 labels_ignore.append(label)
