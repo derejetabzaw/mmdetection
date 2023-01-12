@@ -36,7 +36,9 @@ class sCocoDataset(CustomDataset):
     #            'mouse', 'remote', 'keyboard', 'cell phone', 'microwave',
     #            'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock',
     #            'vase', 'scissors', 'teddy bear', 'hair drier', 'toothbrush')
-    CLASSES = ('API' , 'Area' , 'Line' , 'Reel')
+    #CLASSES = ('API' , 'Area' , 'Line' , 'Reel')
+    CLASSES = ('info' , 'info_2' , 'info_3')
+
 
     # PALETTE = [(220, 20, 60), (119, 11, 32), (0, 0, 142), (0, 0, 230),
     #            (106, 0, 228), (0, 60, 100), (0, 80, 100), (0, 0, 70),

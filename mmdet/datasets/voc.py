@@ -16,7 +16,8 @@ class VOCDataset(XMLDataset):
     #            'motorbike', 'person', 'pottedplant', 'sheep', 'sofa', 'train',
     #            'tvmonitor')
     # CLASSES = ('chinese','noresult')
-    CLASSES = ('API', 'Area', 'Line', 'Reel', 'noresult')
+    #CLASSES = ('API', 'Area', 'Line', 'Reel', 'noresult')
+    CLASSES = ('info','info_2','info_3')
     # CLASSES = ('API', 'Area')
     PALETTE = [(106, 0, 228), (119, 11, 32), (165, 42, 42), (0, 0, 192),
                (197, 226, 255), (0, 60, 100), (0, 0, 142), (255, 77, 255),

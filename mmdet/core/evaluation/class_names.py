@@ -81,7 +81,9 @@ def coco_classes():
     #     'oven', 'toaster', 'sink', 'refrigerator', 'book', 'clock', 'vase',
     #     'scissors', 'teddy_bear', 'hair_drier', 'toothbrush'
     # ]
-    return ['API' , 'Area' , 'Line' , 'Reel' , 'no_result']
+    # return ['API' , 'Area' , 'Line' , 'Reel' , 'no_result']
+    return ['info','info_2','info_3']
+
 
 
 def cityscapes_classes():
