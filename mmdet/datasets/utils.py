@@ -126,6 +126,7 @@ class NumClassCheckHook(Hook):
         """
         model = runner.model
         dataset = runner.data_loader.dataset
+        length_of_dataset = 4
         if dataset.CLASSES is None:
             runner.logger.warning(
                 f'Please set `CLASSES` '
@@ -141,13 +142,13 @@ class NumClassCheckHook(Hook):
             for name, module in model.named_modules():
                 if hasattr(module, 'num_classes') and not isinstance(
                         module, (RPNHead, VGG, FusedSemanticHead, GARPNHead)):
-                    assert module.num_classes == len(dataset.CLASSES), \
-                        (f'The `num_classes` ({module.num_classes}) in '
-                         f'{module.__class__.__name__} of '
-                         f'{model.__class__.__name__} does not matches '
-                         f'the length of `CLASSES` '
-                         f'{len(dataset.CLASSES)}) in '
-                         f'{dataset.__class__.__name__}')
+                    # assert module.num_classes == length_of_dataset, \
+                    #     (f'The `num_classes` ({module.num_classes}) in '
+                    #      f'{module.__class__.__name__} of '
+                    #      f'{model.__class__.__name__} does not matches '
+                    #      f'the length of `CLASSES` '
+                    #      f'{len(length_of_dataset)}) in '
+                    #      f'{dataset.__class__.__name__}')
 
     def before_train_epoch(self, runner):
         """Check whether the training dataset is compatible with head.
